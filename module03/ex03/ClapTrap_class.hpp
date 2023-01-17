@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:22:31 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:09:34 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/16 15:44:03 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ class 	ClapTrap
 
 	public:
 		ClapTrap(std::string name);
-		~ClapTrap(void);
+		virtual	~ClapTrap(void);
 		
 		void	attack(const std::string &target);
 		void	takeDamage(unsigned int amount);

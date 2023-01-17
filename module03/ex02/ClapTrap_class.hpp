@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:22:31 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:09:34 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:26:51 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,6 @@
 
 class 	ClapTrap
 {
-	private:
-		
 	protected:
 		ClapTrap(void);
 		ClapTrap(const ClapTrap &copy);

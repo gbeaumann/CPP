@@ -6,13 +6,19 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:28 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/13 16:59:11 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:28:28 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ClapTrap_class.hpp"
 
-ClapTrap::ClapTrap(void){}
+ClapTrap::ClapTrap(void)
+{
+	std::cout << "ClapTrap Default constructor called" << std::endl;
+	this->_Hit_points = 100;
+	this->_Energy_points = 50;
+	this->_Attack_dmg = 20;
+}
 
 ClapTrap::ClapTrap(std::string name) : _Name(name)
 {
@@ -74,7 +80,7 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	{
 		this->_Energy_points--;
 		this->_Hit_points += amount;
-		std::cout << this->_Name << " repares himself by " << amount << " points" << std::endl;
+		std::cout << this->_Name << " repares itself by " << amount << " points" << std::endl;
 	}
 	else if (this->_Energy_points == 0)
 		std::cout << this->_Name << " has no more energy..." << std::endl;

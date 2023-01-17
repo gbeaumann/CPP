@@ -6,20 +6,20 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:28 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 14:28:38 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/16 14:28:16 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ClapTrap_class.hpp"
 
-ClapTrap::ClapTrap(void){}
+ClapTrap::ClapTrap(void) : _Name("Default"), _Hit_points(100), _Energy_points(50), _Attack_dmg(20)
+{
+	std::cout << "ClapTrap default constructor called" << std::endl;
+}
 
-ClapTrap::ClapTrap(std::string name) : _Name(name)
+ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit_points(100), _Energy_points(50), _Attack_dmg(20)
 {
 	std::cout << "ClapTrap " << this->_Name << " was created!" << std::endl;
-	this->_Hit_points = 10;
-	this->_Energy_points = 10;
-	this->_Attack_dmg = 0;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -70,7 +70,7 @@ void	ClapTrap::takeDamage(unsigned int amount)
 
 void	ClapTrap::beRepaired(unsigned int amount)
 {
-	if (this->_Energy_points > 0 && this->_Hit_points < 10)
+	if (this->_Energy_points > 0 && this->_Hit_points < 100)
 	{
 		this->_Energy_points--;
 		this->_Hit_points += amount;
@@ -78,9 +78,9 @@ void	ClapTrap::beRepaired(unsigned int amount)
 	}
 	else if (this->_Energy_points == 0)
 		std::cout << this->_Name << " has no more energy..." << std::endl;
-	if (this->_Hit_points >= 10)
+	if (this->_Hit_points >= 100)
 	{
-		this->_Hit_points = 10;
+		this->_Hit_points = 100;
 		std::cout << this->_Name << " is fully repared!" << std::endl;
 	}
 }

@@ -6,32 +6,38 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:09:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:17:18 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/16 11:51:11 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"SkavTrap_class.hpp"
+#include	"FragTrap_class.hpp"
 
 int	main(void)
 {
-	SkavTrap eudes("Eudes");
+	//ClapTrap	charles("Charles");
+	//SkavTrap	eudes("Eudes");
+	FragTrap	bichette("Bichette");
 
-	eudes.takeDamage(20);
-	eudes.takeDamage(60);
-	eudes.beRepaired(30);
-	eudes.beRepaired(60);
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.guardGate();
-	//charle.guardGate();
+	bichette.takeDamage(20);
+	bichette.takeDamage(60);
+	bichette.beRepaired(30);
+	bichette.beRepaired(60);
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.attack("Bob");
+	bichette.highFivesGuys();
+	//bichette.guardGate();
+	//eudes.highFivesGuys();
+	//charles.guardGate();
+	//charles.highFivesGuys();
 	
 	return (0);
 }

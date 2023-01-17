@@ -6,32 +6,27 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:09:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:17:18 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/17 10:03:10 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include	"SkavTrap_class.hpp"
+//#include	"SkavTrap_class.hpp"
+//#include	"FragTrap_class.hpp"
+#include	"DiamondTrap_class.hpp"
 
 int	main(void)
 {
-	SkavTrap eudes("Eudes");
+	//ClapTrap	charles("Charles");
+	//SkavTrap	eudes("Eudes");
+	DiamondTrap	moon("Moon");
 
-	eudes.takeDamage(20);
-	eudes.takeDamage(60);
-	eudes.beRepaired(30);
-	eudes.beRepaired(60);
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.guardGate();
-	//charle.guardGate();
+	moon.guardGate();
+	moon.highFivesGuys();
+	moon.showInfo();
+	//bichette.guardGate();
+	//eudes.highFivesGuys();
+	//charles.guardGate();
+	//charles.highFivesGuys();
 	
 	return (0);
 }

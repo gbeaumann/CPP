@@ -1,37 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   DiamondTrap_class.hpp                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/13 14:09:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:17:18 by gbeauman         ###   ########.fr       */
+/*   Created: 2023/01/16 13:22:58 by gbeauman          #+#    #+#             */
+/*   Updated: 2023/01/16 19:22:42 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef DIAMONDTRAP_CLASS_HPP
+# define DIAMONDTRAP_CLASS_HPP
+
 #include	"SkavTrap_class.hpp"
+#include	"FragTrap_class.hpp"
 
-int	main(void)
+class	DiamondTrap : public SkavTrap, public FragTrap
 {
-	SkavTrap eudes("Eudes");
-
-	eudes.takeDamage(20);
-	eudes.takeDamage(60);
-	eudes.beRepaired(30);
-	eudes.beRepaired(60);
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.attack("Bob");
-	eudes.guardGate();
-	//charle.guardGate();
+	private:
+		std::string	_Name;
 	
-	return (0);
-}
+	public:
+		DiamondTrap(void);
+		//DiamondTrap(const DiamondTrap &copy);
+		//DiamondTrap	&operator=(const DiamondTrap &copy);
+		
+		DiamondTrap(std::string name);
+		~DiamondTrap(void);
+
+		void	showInfo(void);
+};
+
+#endif

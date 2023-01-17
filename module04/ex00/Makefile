@@ -1,0 +1,27 @@
+NAME	=	animal
+SRC		=	main.cpp\
+			Animal_class.cpp\
+			Cat_class.cpp\
+			Dog_class.cpp\
+			WrongAnimal_class.cpp\
+			WrongCat_class.cpp
+CC		=	c++
+CFLAGS	=	-Wall -Werror -Wextra -std=c++98
+OBJS	=	$(SRC:.cpp=.o)
+
+%.o:		%.cpp
+	$(CC) $(CFLAGS) -c $< -o $@
+
+all:		$(NAME)
+
+$(NAME):		$(OBJS)
+		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+
+clean:
+		rm -f $(OBJS)
+
+fclean:	clean
+		rm -f $(NAME)
+re:		fclean all
+
+.PHONY: all clean fclean re

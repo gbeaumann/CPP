@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:58:38 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/19 10:03:02 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/19 11:28:28 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ Cat	&Cat::operator=(const Cat &rhs)
 
 Cat::Cat(const Cat &rhs)
 {
-	std::cout << "Cat copy called" << std::endl;
 	*this = rhs;
 }
 
@@ -44,9 +43,4 @@ Cat::~Cat(void)
 void	Cat::makeSound(void) const
 {
 	std::cout << "The kitty " << this->getType() << " purrs while thinking of killing you." << std::endl;
-}
-
-Brain	*Cat::getBrain(void) const
-{
-	return(this->_Brain);
 }

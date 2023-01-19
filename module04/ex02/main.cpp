@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal_class.hpp                              :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 13:38:05 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/17 14:19:59 by gbeauman         ###   ########.fr       */
+/*   Created: 2023/01/17 11:13:21 by gbeauman          #+#    #+#             */
+/*   Updated: 2023/01/19 11:30:41 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef WRONGANIMAL_CLASS_HPP
-# define WRONGANIMAL_CLASS_HPP
+#include	"Cat_class.hpp"
+#include	"Dog_class.hpp"
 
-#include	<iostream>
-#include	<string>
-
-class	WrongAnimal
+int main()
 {
-	protected:
-		std::string	_type;
+	Cat	cat;
+	Dog	dog;
+	const Animal	*animal = new Cat();
+
+	cat.makeSound();
+	dog.makeSound();
+	animal->makeSound();
+
+	delete animal;
 	
-	public:
-		WrongAnimal(void);
-		WrongAnimal(const WrongAnimal &rhs);
-		WrongAnimal	&operator=(const WrongAnimal &rhs);
-		virtual ~WrongAnimal(void);
-
-		void	makeSound(void) const;
-		std::string	getType(void) const;
-		
-};
-
-#endif
+	return 0;
+}

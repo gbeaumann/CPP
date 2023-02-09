@@ -6,13 +6,13 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:52:55 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/31 11:38:50 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/07 09:31:58 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"Bureaucrat_class.hpp"
 
-// Coplien form
+// Coplien AForm
 
 Bureaucrat::Bureaucrat(void) : _Name("New employee"), _Grade(150)
 {
@@ -77,13 +77,13 @@ void	Bureaucrat::setGrade(std::string newGrade)
 	std::cout << this->getName() << " new grade is " << this->getGrade() << std::endl;
 }
 
-void	Bureaucrat::signForm(Form &rhs) const
+void	Bureaucrat::signForm(AForm &rhs) const
 {
 	try
 	{
 		rhs.beSigned(this->getGrade());
 	}
-	catch	(Form::GradeTooHighException &e)
+	catch	(AForm::GradeTooHighException &e)
 	{
 		std::cout << this->getName()
 		<< " couldn't sign form "
@@ -92,7 +92,7 @@ void	Bureaucrat::signForm(Form &rhs) const
 		<< "'" << std::endl;
 		std::cerr << e.what() << std::endl;
 	}
-	catch	(Form::GradeTooLowException &e)
+	catch	(AForm::GradeTooLowException &e)
 	{
 		std::cout << this->getName()
 		<< " couldn't sign form "
@@ -107,6 +107,21 @@ void	Bureaucrat::signForm(Form &rhs) const
 		<< "'"
 		<< rhs.getName()
 		<< "'" << std::endl;
+}
+
+bool	Bureaucrat::executeForm(const AForm &form) const
+{
+	if (this->getGrade() <= form.getGradeToExec())
+	{
+		std::cout << this->getName() << " executed " << "'" << form.getName() << "'" << std::endl;
+		return (true);
+	}
+	else
+	{
+		std::cout << this->getName() << "'s grade is too low to execut "
+		<< "'" << form.getName() << "'" << std::endl;
+		return (false);
+	}
 }
 
 // Exception

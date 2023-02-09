@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:28:40 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/19 18:12:29 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/31 13:12:54 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,12 +26,13 @@ int	main(void)
 		std::cout << bob << std::endl;
 		carl.setGrade("promotion");
 		std::cout << bob << std::endl;
+
+		delete test;
 	}
 	catch (Bureaucrat::GradeTooHighException &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
-
 	catch (Bureaucrat::GradeTooLowException &e)
 	{
 		std::cerr << e.what() << std::endl;

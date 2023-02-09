@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:58:38 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/19 10:03:02 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:23:08 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Cat	&Cat::operator=(const Cat &rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
-		this->_Brain = new Brain();
+		*(this->_Brain) = *(rhs.getBrain());
 	}
 	return (*this);
 }
@@ -32,11 +32,13 @@ Cat	&Cat::operator=(const Cat &rhs)
 Cat::Cat(const Cat &rhs)
 {
 	std::cout << "Cat copy called" << std::endl;
+	this->_Brain = new Brain();
 	*this = rhs;
 }
 
 Cat::~Cat(void)
 {
+	std::cout << this->getType() << std::endl;
 	delete this->_Brain;
 	std::cout << "The " << this->getType() << " falls asleep...night night" << std::endl;
 }

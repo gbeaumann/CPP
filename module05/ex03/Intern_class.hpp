@@ -1,34 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Dog_class.hpp                                      :+:      :+:    :+:   */
+/*   Intern_class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/17 11:10:19 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/20 12:31:39 by gbeauman         ###   ########.fr       */
+/*   Created: 2023/02/06 13:44:45 by gbeauman          #+#    #+#             */
+/*   Updated: 2023/02/07 09:32:45 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef DOG_CLASS_HPP
-# define DOG_CLASS_HPP
+#ifndef INTERN_CLASS_HPP
+# define INTERN_CLASS_HPP
 
-#include	"Animal_class.hpp"
-#include	"Brain_class.hpp"
+#include	"AForm_class.hpp"
+#include	"ShrubberyCreationForm_class.hpp"
+#include	"RobotomyRequestForm_class.hpp"
+#include	"PresidentialPardonForm_class.hpp"
 
-class	Dog : public Animal
+class	Intern
 {
-	private:
-		Brain	*_Brain;
-		
 	public:
-		Dog(void);
-		Dog(const Dog &rhs);
-		Dog	&operator=(const Dog &rhs);
-		~Dog(void);
+		Intern(void);
+		Intern(const Intern &rhs);
+		Intern	&operator=(const Intern &rhs);
+		~Intern(void);
 
-		void	makeSound(void) const;
-		Brain	*getBrain(void) const;
+		AForm	*makeForm(const std::string form, const std::string target);
 };
 
 #endif

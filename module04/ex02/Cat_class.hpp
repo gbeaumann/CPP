@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:52:22 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/19 11:28:22 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:31:33 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,7 @@ class	Cat : public Animal
 		~Cat(void);
 
 		void	makeSound(void) const;
+		Brain	*getBrain(void) const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:58:38 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/17 19:25:38 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/01/20 12:30:45 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,15 @@ Dog	&Dog::operator=(const Dog &rhs)
 	if (this != &rhs)
 	{
 		this->_type = rhs._type;
-		this->_Brain = new Brain();
+		*(this->_Brain) = *(rhs.getBrain());
 	}
 	return (*this);
 }
 
 Dog::Dog(const Dog &rhs)
 {
+	std::cout << "Dog copy called" << std::endl;
+	this->_Brain = new Brain();
 	*this = rhs;
 }
 
@@ -43,4 +45,9 @@ Dog::~Dog(void)
 void	Dog::makeSound(void) const
 {
 	std::cout << "The " << this->getType() << " barks at a tree trunk!?" << std::endl;
+}
+
+Brain	*Dog::getBrain(void) const
+{
+	return(this->_Brain);
 }

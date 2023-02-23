@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:30:22 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/12 19:16:20 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:03:47 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	main(void)
 	Fixed b(3);
 	Fixed c(3);
 	Fixed d(4);
-	Fixed const e( Fixed( 5.05f ) * Fixed( 2 ) );
+	Fixed e(0);
 	
 	std::cout << b << std::endl;
 	std::cout << d / b << std::endl;
@@ -31,6 +31,7 @@ int	main(void)
 	std::cout << a-- << std::endl;
 	std::cout << a << std::endl;
 	std::cout << e << std::endl;
+
 	if (a < b)
 		std::cout << "coucou 1" << std::endl;
 	if (b > a)
@@ -44,10 +45,8 @@ int	main(void)
 	if (c >= b && d >= b)
 		std::cout << "coucou 6" << std::endl;
 	
-	//std::cout << b << std::endl;
-	
-	std::cout << Fixed::min( d, a ) << std::endl;
-	std::cout << Fixed::max( a, d ) << std::endl;
+	std::cout << "Minimum between '" << a << "' and '" << d << "': " << Fixed::min( d, a ) << std::endl;
+	std::cout << "Maxumum between '" << a << "' and '" << d << "': " << Fixed::max( a, d ) << std::endl;
 	
 	return (0);
 }

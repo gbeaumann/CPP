@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.hpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:23:48 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/02/03 08:03:38 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/17 15:45:10 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ private:
 	std::string	_phone_number;
 	std::string	_darkest_secret;
 	void	_check_lenght(std::string *str);
+	int		_index;
 
 public:
 	Contact(void);
@@ -33,7 +34,6 @@ public:
 	void	get_info(int cont_num);
 	void	display_search(void);
 	void	print_contact(void);
-	int		index;
 };
 
 

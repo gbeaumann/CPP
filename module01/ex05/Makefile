@@ -1,17 +1,17 @@
-NAME	=	harl
-SRC		=	main.cpp\
-			harl_class.cpp
-CC		=	c++
-CFLAG	=	-Wall -Wextra -Werror -std=c++98
-OBJS	=	$(SRC:.cpp=.o)
+NAME		=	harl
+SRC			=	main.cpp\
+				harl_class.cpp
+CXX			=	g++-12
+CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
+OBJS		=	$(SRC:.cpp=.o)
 
 %.o:		%.cpp
-		$(CC) $(CFLAG) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-		$(CC)	$(CFLAG) $(OBJS) -o $(NAME)
+		$(CXX)	$(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 		rm -f $(OBJS)

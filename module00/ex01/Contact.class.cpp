@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.class.cpp                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:23:36 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/02/03 07:56:26 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/17 15:46:06 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,9 @@ void	Contact::_check_lenght(std::string *str)
 
 void	Contact::get_info(int cont_num)
 {
-	this->index = cont_num;
+	this->_index = cont_num;
 	std::cout << "Enter your contact informations" << std::endl;
+	std::cout << "Index num: " << this->_index << std::endl;
 	std::cout << "First name: ";
 	std::getline(std::cin, this->_first_name);
 	while (this->_first_name.empty())
@@ -82,7 +83,7 @@ void	Contact::get_info(int cont_num)
 
 void	Contact::display_search(void)
 {
-	std::cout << std::setfill(' ') << std::setw(10) << this->index << "|";
+	std::cout << std::setfill(' ') << std::setw(10) << this->_index << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << this->_first_name << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << this->_last_name << "|";
 	std::cout << std::setfill(' ') << std::setw(10) << this->_nickname << "|" << std::endl;

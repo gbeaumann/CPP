@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie_class.hpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 15:52:49 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/02/03 09:15:00 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/21 10:01:31 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ class	Zombie
 		void	setName(std::string name);
 		void	announce(void);
 };
+
+Zombie	*zombieHorde(int N, std::string name);
 
 #endif

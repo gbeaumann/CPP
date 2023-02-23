@@ -1,36 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Identify_class.hpp                                 :+:      :+:    :+:   */
+/*   templateEx_class.cpp                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 11:16:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:01:09 by gbeauman         ###   ########.fr       */
+/*   Created: 2023/02/16 10:41:00 by gbeauman          #+#    #+#             */
+/*   Updated: 2023/02/16 11:48:47 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IDENTIFY_CLASS_HPP
-# define IDENTIFY_CLASS_HPP
+#include	"templateEx_class.hpp"
 
-#include	<iostream>
-#include	<string>
-#include	<time.h>
+// coplien
 
-class	Base
+ExTemp::ExTemp(void)
+{}
+
+ExTemp::ExTemp(const ExTemp &rhs)
 {
-	public:
-		virtual	~Base(void);
-		Base	*generate(void);
-		void	identify(Base *p);
-		void	identify(Base &p);
-};
+	*this = rhs;
+}
 
-class	A : public Base{};
-class	B : public Base{};
-class	C : public Base{};
+ExTemp	&ExTemp::operator=(const ExTemp &rhs)
+{
+	if (this != &rhs)
+		std::cout << "Overload operator called" << std::endl;
+	return (*this);
+}
 
-
-
-
-#endif
+ExTemp::~ExTemp(void)
+{}

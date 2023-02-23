@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 17:23:07 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/01/05 17:38:26 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/17 14:16:17 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

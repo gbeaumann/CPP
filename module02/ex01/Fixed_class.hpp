@@ -10,19 +10,20 @@ class	Fixed
 	private:
 		int					_nbr;
 		static const int	_nbr_bit = 8;
+		float				_ft_pow(int base, int value) const;
 	
 	public:
-		Fixed();
-		Fixed(const Fixed &copy);
+		Fixed(void);
+		Fixed(const Fixed &rhs);
 		Fixed(const int nbr1);
 		Fixed(const float nbr2);
-		Fixed	&operator=(const Fixed &copy);
-		~Fixed();
-		int	getRawBits(void) const;
+		Fixed	&operator=(const Fixed &rhs);
+		~Fixed(void);
+		int		getRawBits(void) const;
 		void	setRawBits(int const raw);
 		float	toFloat(void) const;
 		int		toInt(void) const;	
 };
-std::ostream	&operator<<(std::ostream &os, const Fixed &copy);
+std::ostream	&operator<<(std::ostream &os, const Fixed &rhs);
 
 #endif

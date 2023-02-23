@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:02:58 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/13 10:13:09 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 11:09:06 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,67 +28,67 @@ Fixed::Fixed(const int nbr1)
 
 Fixed::Fixed(const float nbr2)
 {
-	this->setRawBits(std::roundf(nbr2 * pow(2, this->_nbr_bit)));
+	this->setRawBits(roundf(nbr2 * this->_ft_pow(2, this->_nbr_bit)));
 }
 
-Fixed::Fixed(const Fixed &copy)
+Fixed::Fixed(const Fixed &rhs)
 {
-	*this = copy;
+	*this = rhs;
 }
 
-std::ostream &operator<<(std::ostream &os, const Fixed &copy)
+std::ostream &operator<<(std::ostream &os, const Fixed &rhs)
 {
-		os << copy.toFloat();
+		os << rhs.toFloat();
 		return (os);
 }
 
-Fixed	&Fixed::operator=(const Fixed &copy)
+Fixed	&Fixed::operator=(const Fixed &rhs)
 {
-	if (this  != &copy)
-		this->_nbr = copy.getRawBits();
+	if (this  != &rhs)
+		this->_nbr = rhs.getRawBits();
 	return (*this);
 }
 
 // operateur d'arithmétiques
-Fixed	Fixed::operator+(const Fixed &copy) const
+Fixed	Fixed::operator+(const Fixed &rhs) const
 {
 	float	result;
 	
-	result = this->toFloat() + copy.toFloat();
+	result = this->toFloat() + rhs.toFloat();
 	return (result);
 }
 
-Fixed	Fixed::operator-(const Fixed &copy) const
+Fixed	Fixed::operator-(const Fixed &rhs) const
 {
 	float	result;
 
-	result = this->toFloat() - copy.toFloat();
+	result = this->toFloat() - rhs.toFloat();
 	return (result);
 }
 
-Fixed	Fixed::operator*(const Fixed &copy) const
+Fixed	Fixed::operator*(const Fixed &rhs) const
 {
 	float	result;
 
-	result = this->toFloat() * copy.toFloat();
+	result = this->toFloat() * rhs.toFloat();
 	return (result);
 }
 
-Fixed	Fixed::operator/(const Fixed &copy) const
+Fixed	Fixed::operator/(const Fixed &rhs) const
 {
 	float	result;
 
-	result = this->toFloat() / copy.toFloat();
+	result = this->toFloat() / rhs.toFloat();
 	return (result);
 }
 
 // operateur de comparaison
 
-bool	Fixed::operator<(const Fixed &copy) const
+bool	Fixed::operator<(const Fixed &rhs) const
 {
 	bool	result;
 	
-	result = this->toFloat() < copy.toFloat();
+	result = this->toFloat() < rhs.toFloat();
 	return (result);
 }
 
@@ -175,7 +175,7 @@ float	Fixed::toFloat(void) const
 {
 	float	result;
 	
-	result = this->_nbr / pow(2, this->_nbr_bit);
+	result = this->_nbr / this->_ft_pow(2, this->_nbr_bit);
 	return (result);
 }
 
@@ -220,4 +220,13 @@ Fixed	Fixed::max(const Fixed &nbr1, const Fixed &nbr2)
 		return (nbr2);
 	else
 		return (nbr1);
+}
+
+float	Fixed::_ft_pow(int base, int value) const
+{
+	float	result = base;
+
+	for(int i = 0; i < (value - 1); i++)
+		result *= base;
+	return (result);
 }

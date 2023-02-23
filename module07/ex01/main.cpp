@@ -1,36 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Identify_class.hpp                                 :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 11:16:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:01:09 by gbeauman         ###   ########.fr       */
+/*   Created: 2023/02/16 17:13:02 by gbeauman          #+#    #+#             */
+/*   Updated: 2023/02/16 17:33:55 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IDENTIFY_CLASS_HPP
-# define IDENTIFY_CLASS_HPP
+#include	"iter.hpp"
 
-#include	<iostream>
-#include	<string>
-#include	<time.h>
-
-class	Base
+int main(void)
 {
-	public:
-		virtual	~Base(void);
-		Base	*generate(void);
-		void	identify(Base *p);
-		void	identify(Base &p);
-};
-
-class	A : public Base{};
-class	B : public Base{};
-class	C : public Base{};
-
-
-
-
-#endif
+	const int	len = 3;
+	std::string array[len] = {"salut", "coucou", "lapin"};
+	int			arrayInt[len] = {1, 2, 3};
+	double		arrayDouble[len] = {3.025, 4.153, 97.501};
+	float		arrayFloat[len] = {3.025f, 4.153f, 97.501f};
+	::iter(array, len, ft_print);
+	::iter(arrayInt, len, ft_print);
+	::iter(arrayDouble, len, ft_print);
+	::iter(arrayFloat, len, ft_print);
+	return (0);
+}

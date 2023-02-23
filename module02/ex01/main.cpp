@@ -6,14 +6,14 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 16:30:22 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/11 18:50:29 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:17:52 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"Fixed_class.hpp"
 
 int	main(void)
-{
+{	
 	Fixed a;
 	Fixed const b( 10 );
 	Fixed const c( 42.42f );

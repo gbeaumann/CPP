@@ -1,36 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Identify_class.hpp                                 :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/14 11:16:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:01:09 by gbeauman         ###   ########.fr       */
+/*   Created: 2023/02/14 15:06:33 by gbeauman          #+#    #+#             */
+/*   Updated: 2023/02/14 16:01:40 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef IDENTIFY_CLASS_HPP
-# define IDENTIFY_CLASS_HPP
+#include	"Identify_class.hpp"
 
-#include	<iostream>
-#include	<string>
-#include	<time.h>
-
-class	Base
+int main(void)
 {
-	public:
-		virtual	~Base(void);
-		Base	*generate(void);
-		void	identify(Base *p);
-		void	identify(Base &p);
-};
-
-class	A : public Base{};
-class	B : public Base{};
-class	C : public Base{};
-
-
-
-
-#endif
+	Base	*base;
+	base = Base::generate();
+	Base::identify(base);
+}

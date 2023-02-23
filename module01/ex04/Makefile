@@ -1,23 +1,23 @@
-NAME	=	sed
-SRC		=	main.cpp
-CC		=	c++
-CFLAG	=	-Wall -Wextra -Werror -std=c++98
-OBJS	=	$(SRC:.cpp=.o)
+NAME		=	sed
+SRC			=	main.cpp
+CXX			=	g++-12
+CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
+OBJS		=	$(SRC:.cpp=.o)
 
 %.o:		%.cpp
-		$(CC) $(CFLAG) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-		$(CC)	$(CFLAG) $(OBJS) -o $(NAME)
+		$(CXX)	$(CXXFLAGS) $(OBJS) -o $(NAME)
 
 clean:
 		rm -f $(OBJS)
-		rm -f new_text.replace
 
 fclean: clean
 		rm -f $(NAME)
+		rm -f new_text.replace
 
 re:		fclean all
 

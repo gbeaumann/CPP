@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 11:23:57 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/02/03 08:09:43 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/17 13:45:11 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	<iostream>
 #include	<string>
+#include	<cstdlib>
 #include	"Contact.class.hpp"
 #include	"PhoneBook.class.hpp"
 
@@ -28,7 +29,7 @@ int	main(void)
 	{
 		if (i == size_max)
 			i = 0;
-		std::cout << "Enter command: ";
+		std::cout << "Enter command 'ADD', 'SEARCH' OR 'EXIT': ";
 		std::getline(std::cin, str);
 		if (str.compare("ADD") == 0)
 		{
@@ -37,9 +38,9 @@ int	main(void)
 			if (maxSearch != size_max)
 				maxSearch++;
 		}
-		if (str.compare("EXIT") == 0)
+		else if (str.compare("EXIT") == 0)
 			return (0);
-		if (str.compare("SEARCH") == 0)
+		else if (str.compare("SEARCH") == 0)
 		{
 			phonebook.search_ui();
 			for (int i3 = 0; i3 < maxSearch; i3++)
@@ -51,10 +52,12 @@ int	main(void)
 				std::cout << "Wrong index number, contact does not exist." << std::endl;
 			else
 			{
-				cont_index = std::stoi(str, nullptr, 10);
+				cont_index = atoi(str.c_str());
 				phonebook.contact[cont_index].print_contact();
 			}
 		}
+		else
+			std::cout << "Error: wrong input" << std::endl;
 	}
 	return (0);
 }

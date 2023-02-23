@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   harl_class.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/10 10:37:56 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/01/10 12:30:36 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/21 11:40:28 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 

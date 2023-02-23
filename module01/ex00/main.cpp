@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: gregoirebeaumann <gregoirebeaumann@stud    +#+  +:+       +#+        */
+/*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/05 14:46:54 by gregoirebea       #+#    #+#             */
-/*   Updated: 2023/01/05 15:47:13 by gregoirebea      ###   ########.fr       */
+/*   Updated: 2023/02/21 15:14:07 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 #include	<iostream>
 #include	<string>
 
-Zombie	*newZombie(std::string name);
-void	randomChump(std::string name);
-
 int	main(void)
 {
 	Zombie	first_zombie("Foo");
+	Zombie	*newGuy = newZombie("New guy");
+	newGuy->announce();
 	first_zombie.announce();
-	newZombie("New guy");
 	randomChump("Chump");
+
+	delete newGuy;
 	
 	return (0);
 }

@@ -6,19 +6,19 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/11 11:02:58 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/11 18:54:01 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 10:59:02 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"Fixed_class.hpp"
 
-Fixed::Fixed()
+Fixed::Fixed(void)
 {
 	std::cout << "Default constructor called" << std::endl;
 	this->_nbr = 0;
 }
 
-Fixed::~Fixed()
+Fixed::~Fixed(void)
 {
 	std::cout << "Destructor called" << std::endl;
 }
@@ -26,34 +26,34 @@ Fixed::~Fixed()
 Fixed::Fixed(const int nbr1)
 {
 	std::cout << "Int constructor called" << std::endl;
-	this->_nbr = nbr1 << this->_nbr_bit;
+	this->setRawBits(nbr1 << this->_nbr_bit);
 }
 
 Fixed::Fixed(const float nbr2)
 {
 	std::cout << "Float constructor called" << std::endl;
-	this->setRawBits(std::roundf(nbr2 * pow(2, this->_nbr_bit)));
+	this->setRawBits(roundf(nbr2 * this->_ft_pow(2, this->_nbr_bit)));
 }
 
-Fixed::Fixed(const Fixed &copy)
+Fixed::Fixed(const Fixed &rhs)
 {
 	std::cout << "Copy operator called" << std::endl;
-	*this = copy;
+	*this = rhs;
 }
 
-Fixed	&Fixed::operator=(const Fixed &copy)
+Fixed	&Fixed::operator=(const Fixed &rhs)
 {
 	std::cout << "Copy assignment operator called" << std::endl;
-	if (this  != &copy)
+	if (this  != &rhs)
 	{
-		_nbr = copy.getRawBits();
+		_nbr = rhs.getRawBits();
 	}
 	return (*this);
 }
 
-std::ostream &operator<<(std::ostream &os, const Fixed &copy)
+std::ostream &operator<<(std::ostream &os, const Fixed &rhs)
 {
-		os << copy.toFloat();
+		os << rhs.toFloat();
 		return (os);
 }
 
@@ -64,7 +64,6 @@ void	Fixed::setRawBits(int const raw)
 
 int	Fixed::getRawBits(void) const
 {
-	//std::cout << "getRawBits member function called" << std::endl;
 	return (this->_nbr);
 }
 
@@ -72,12 +71,20 @@ float	Fixed::toFloat(void) const
 {
 	float	result;
 	
-	result = this->_nbr / pow(2, this->_nbr_bit);
+	result = this->_nbr / (this->_ft_pow(2, this->_nbr_bit));
 	return (result);
-	//return ((float)(this->_nbr) / (pow(2, this->_nbr_bit)));
 }
 
-int	Fixed::toInt() const
+int	Fixed::toInt(void) const
 {
 	return (this->_nbr >> this->_nbr_bit);
+}
+
+float	Fixed::_ft_pow(int base, int value) const
+{
+	float	result = base;
+
+	for(int i = 0; i < (value - 1); i++)
+		result *= base;
+	return (result);
 }

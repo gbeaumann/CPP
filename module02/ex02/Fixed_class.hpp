@@ -10,6 +10,7 @@ class	Fixed
 	private:
 		int					_nbr;
 		static const int	_nbr_bit = 8;
+		float				_ft_pow(int base, int value) const;
 	
 	public:
 		Fixed();

@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:58:38 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/20 12:23:08 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/03 10:41:13 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ Cat::Cat(const Cat &rhs)
 
 Cat::~Cat(void)
 {
-	std::cout << this->getType() << std::endl;
 	delete this->_Brain;
 	std::cout << "The " << this->getType() << " falls asleep...night night" << std::endl;
 }

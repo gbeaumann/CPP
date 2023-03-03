@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:28:43 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/17 18:05:40 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:09:53 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 #include	<iostream>
 #include	<string>
-#include	"Brain_class.hpp"
 
 class	Animal
 {

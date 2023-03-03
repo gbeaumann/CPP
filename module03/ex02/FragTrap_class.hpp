@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:23:33 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:30:14 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:55:42 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,14 @@
 
 class	FragTrap : public ClapTrap
 {
-	private:
-		FragTrap(void);
-		FragTrap(const FragTrap &copy);
-		FragTrap	&operator=(const FragTrap &copy);
-	
 	public:
+		FragTrap(void);
 		FragTrap(std::string name);
+		FragTrap(const FragTrap &rhs);
+		FragTrap	&operator=(const FragTrap &rhs);
 		~FragTrap(void);
 		void	highFivesGuys(void);
+		void	attack(const std::string &target);
 	
 };
 

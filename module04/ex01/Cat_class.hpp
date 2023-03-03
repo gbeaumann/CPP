@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 10:52:22 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/17 18:05:46 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:00:56 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ class	Cat : public Animal
 		Cat(void);
 		Cat(const Cat &rhs);
 		Cat	&operator=(const Cat &rhs);
-		~Cat(void);
+		virtual ~Cat(void);
 
 		void	makeSound(void) const;
 		Brain	*getBrain(void) const;

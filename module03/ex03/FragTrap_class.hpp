@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:23:33 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/17 09:49:54 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:31:44 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ class	FragTrap : virtual public ClapTrap
 {
 	public:
 		FragTrap(void);
-		FragTrap(const FragTrap &copy);
-		FragTrap	&operator=(const FragTrap &copy);
+		FragTrap(const FragTrap &rhs);
+		FragTrap	&operator=(const FragTrap &rhs);
 		
 		FragTrap(std::string name);
 		~FragTrap(void);

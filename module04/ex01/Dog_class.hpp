@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 11:10:19 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/20 12:28:27 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/03 11:00:45 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ class	Dog : public Animal
 		Dog(void);
 		Dog(const Dog &rhs);
 		Dog	&operator=(const Dog &rhs);
-		~Dog(void);
+		virtual	~Dog(void);
 
 		void	makeSound(void) const;
 		Brain	*getBrain(void) const;

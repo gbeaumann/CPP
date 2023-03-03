@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:22:31 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 15:44:03 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:31:16 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@ class 	ClapTrap
 		
 	protected:
 		ClapTrap(void);
-		ClapTrap(const ClapTrap &copy);
-		ClapTrap	&operator=(const ClapTrap &copy);
+		ClapTrap(const ClapTrap &rhs);
+		ClapTrap	&operator=(const ClapTrap &rhs);
 		std::string	_Name;
 		int			_Hit_points;
 		int			_Energy_points;

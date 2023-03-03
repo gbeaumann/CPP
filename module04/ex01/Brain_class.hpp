@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/17 14:56:23 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/17 17:03:26 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/03 10:06:38 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,11 @@ class	Brain
 
 	public:
 		Brain(void);
-
 		Brain(const Brain &rhs);
 		Brain	&operator=(const Brain &rhs);
 		~Brain(void);
 
-		void	setIdea(unsigned int ideaNum, const std::string idea);
+		void		setIdea(unsigned int ideaNum, const std::string idea);
 		std::string	getIdea(unsigned int ideaNum) const;
 };
 

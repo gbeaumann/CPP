@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:28 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 14:28:16 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:30:20 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,19 +27,19 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "ClapTrap " << this->_Name << " was destroyed!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
+ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
-	*this = copy;
+	*this = rhs;
 }
 
-ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
+ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 {
-	if (this != &copy)
+	if (this != &rhs)
 	{
-		this->_Name = copy._Name;
-		this->_Hit_points = copy._Hit_points;
-		this->_Energy_points = copy._Energy_points;
-		this->_Attack_dmg = copy._Attack_dmg;
+		this->_Name = rhs._Name;
+		this->_Hit_points = rhs._Hit_points;
+		this->_Energy_points = rhs._Energy_points;
+		this->_Attack_dmg = rhs._Attack_dmg;
 	}
 	return (*this);
 }
@@ -47,14 +47,14 @@ ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
 void	ClapTrap::attack(const std::string &target)
 {
 	if (this->_Hit_points <=0)
-		std::cout << this->_Name << " is down, it can't attack..." << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " is down, it can't attack..." << std::endl;
 	if (this->_Energy_points > 0 && this->_Hit_points > 0)
 	{
 		this->_Energy_points--;
-		std::cout << this->_Name << " attacks " << target << ", causing " << this->_Attack_dmg << " points of damage!" << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " attacks " << target << ", causing " << this->_Attack_dmg << " points of damage!" << std::endl;
 	}
 	else if (this->_Energy_points <= 0)
-		std::cout << this->_Name << " has no more energy..." << std::endl;
+		std::cout << "ClapTrap " << this->_Name << " has no more energy..." << std::endl;
 }
 
 void	ClapTrap::takeDamage(unsigned int amount)

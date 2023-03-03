@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:30:29 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 19:35:32 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:31:33 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_Attack_dmg = 20;
 }
 
-FragTrap	&FragTrap::operator=(const FragTrap &copy)
+FragTrap	&FragTrap::operator=(const FragTrap &rhs)
 {
-	if (this != &copy)
-		ClapTrap::operator=(copy);
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
 	return (*this);
 }
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &rhs)
 {
-	*this = copy;
+	*this = rhs;
 }
 
 FragTrap::~FragTrap(void)

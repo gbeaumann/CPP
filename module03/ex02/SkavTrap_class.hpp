@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:15:05 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:09:08 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:55:55 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,12 +17,11 @@
 
 class	SkavTrap : public ClapTrap
 {
-	private:
-		SkavTrap(void);
-		SkavTrap(const SkavTrap &copy);
-		SkavTrap	&operator=(const SkavTrap &copy);
 	public:
+		SkavTrap(void);
 		SkavTrap(std::string name);
+		SkavTrap(const SkavTrap &rhs);
+		SkavTrap	&operator=(const SkavTrap &rhs);
 		~SkavTrap(void);
 		void	attack(const std::string	&target);
 		void	guardGate(void);

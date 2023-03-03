@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 11:30:29 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 14:27:05 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:55:25 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,16 +28,16 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_Attack_dmg = ClapTrap::_Attack_dmg;
 }
 
-FragTrap	&FragTrap::operator=(const FragTrap &copy)
+FragTrap	&FragTrap::operator=(const FragTrap &rhs)
 {
-	if (this != &copy)
-		ClapTrap::operator=(copy);
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
 	return (*this);
 }
 
-FragTrap::FragTrap(const FragTrap &copy)
+FragTrap::FragTrap(const FragTrap &rhs) : ClapTrap(rhs)
 {
-	*this = copy;
+	*this = rhs;
 }
 
 FragTrap::~FragTrap(void)
@@ -48,4 +48,15 @@ FragTrap::~FragTrap(void)
 void	FragTrap::highFivesGuys(void)
 {
 	std::cout << "FragTrap " << this->_Name << " ask anybody for a high five!" << std::endl;
+}
+
+void	FragTrap::attack(const	std::string	&target)
+{
+	if (this->_Energy_points > 0)
+	{
+		this->_Energy_points--;
+		std::cout << "FragTrap " << this->_Name << " attacked " << target << " for " << this->_Attack_dmg << " damage points" << std::endl;
+	}
+	else if (this->_Energy_points <= 0)
+		std::cout << "FragTrap " << this->_Name << " has no more energy..." << std::endl;
 }

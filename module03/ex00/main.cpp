@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:09:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/13 16:43:30 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:29:28 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,6 @@ int	main(void)
 	charle.beRepaired(7);
 	charle.beRepaired(7);
 	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
-	charle.beRepaired(7);
 	charle.attack("Philou");
 	charle.attack("Philou");
 	charle.attack("Philou");
@@ -40,8 +32,5 @@ int	main(void)
 	charle.attack("Philou");
 	charle.attack("Philou");
 	charle.attack("Philou");
-	charle.attack("Philou");
-	charle.attack("Philou");
-	
 	return (0);
 }

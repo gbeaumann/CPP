@@ -6,20 +6,20 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 13:47:28 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 14:28:38 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/24 11:26:24 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ClapTrap_class.hpp"
 
-ClapTrap::ClapTrap(void){}
+ClapTrap::ClapTrap(void) : _Name("Default"), _Hit_points(10), _Energy_points(10), _Attack_dmg(0)
+{
+	std::cout << this->_Name << "'s constructor called" << std::endl;
+}
 
-ClapTrap::ClapTrap(std::string name) : _Name(name)
+ClapTrap::ClapTrap(std::string name) : _Name(name), _Hit_points(10), _Energy_points(10), _Attack_dmg(0)
 {
 	std::cout << "ClapTrap " << this->_Name << " was created!" << std::endl;
-	this->_Hit_points = 10;
-	this->_Energy_points = 10;
-	this->_Attack_dmg = 0;
 }
 
 ClapTrap::~ClapTrap(void)
@@ -27,19 +27,19 @@ ClapTrap::~ClapTrap(void)
 	std::cout << "ClapTrap " << this->_Name << " was destroyed!" << std::endl;
 }
 
-ClapTrap::ClapTrap(const ClapTrap &copy)
+ClapTrap::ClapTrap(const ClapTrap &rhs)
 {
-	*this = copy;
+	*this = rhs;
 }
 
-ClapTrap	&ClapTrap::operator=(const ClapTrap &copy)
+ClapTrap	&ClapTrap::operator=(const ClapTrap &rhs)
 {
-	if (this != &copy)
+	if (this != &rhs)
 	{
-		this->_Name = copy._Name;
-		this->_Hit_points = copy._Hit_points;
-		this->_Energy_points = copy._Energy_points;
-		this->_Attack_dmg = copy._Attack_dmg;
+		this->_Name = rhs._Name;
+		this->_Hit_points = rhs._Hit_points;
+		this->_Energy_points = rhs._Energy_points;
+		this->_Attack_dmg = rhs._Attack_dmg;
 	}
 	return (*this);
 }

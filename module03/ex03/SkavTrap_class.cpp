@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 16:47:45 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 19:26:05 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:32:18 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,16 +33,16 @@ SkavTrap::~SkavTrap(void)
 	std::cout << "SkavTrap " << this->_Name << " was destroyed!" << std::endl;
 }
 
-SkavTrap	&SkavTrap::operator=(const SkavTrap &copy)
+SkavTrap	&SkavTrap::operator=(const SkavTrap &rhs)
 {
-	if (this != &copy)
-		ClapTrap::operator=(copy);
+	if (this != &rhs)
+		ClapTrap::operator=(rhs);
 	return (*this);
 }
 
-SkavTrap::SkavTrap(const SkavTrap &copy)
+SkavTrap::SkavTrap(const SkavTrap &rhs)
 {
-	*this = copy;
+	*this = rhs;
 }
 
 void	SkavTrap::attack(const	std::string	&target)

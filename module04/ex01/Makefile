@@ -1,26 +1,33 @@
-NAME	=	animal
-SRC		=	main.cpp\
-			Animal_class.cpp\
-			Cat_class.cpp\
-			Dog_class.cpp\
-			Brain_class.cpp
-CC		=	c++
-CFLAGS	=	-Wall -Werror -Wextra -std=c++98
-OBJS	=	$(SRC:.cpp=.o)
+NAME		=	animal
+SRC			=	main.cpp\
+				Animal_class.cpp\
+				Cat_class.cpp\
+				Dog_class.cpp\
+				Brain_class.cpp
+CXX			=	c++
+CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
+OBJS		=	$(SRC:.cpp=.o)
 
 %.o:		%.cpp
-	$(CC) $(CFLAGS) -c $< -o $@
+		$(CXX) $(CXXFLAGS) -c $< -o $@
 
 all:		$(NAME)
 
-$(NAME):		$(OBJS)
-		$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME):	$(OBJS)
+		$(CXX)	$(CXXFLAGS) $(OBJS) -o $(NAME)
+
+run:		all
+		./$(NAME)
+
+leaks:		all
+		leaks -atExit -- ./$(NAME)
 
 clean:
 		rm -f $(OBJS)
 
-fclean:	clean
+fclean: clean
 		rm -f $(NAME)
+
 re:		fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all run leaks fclean clean re

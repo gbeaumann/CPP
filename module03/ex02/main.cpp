@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/13 14:09:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 11:51:11 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 13:51:03 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 
 int	main(void)
 {
-	//ClapTrap	charles("Charles");
-	//SkavTrap	eudes("Eudes");
+	ClapTrap	charles("Charles");
+	SkavTrap	eudes("Eudes");
 	FragTrap	bichette("Bichette");
 
 	bichette.takeDamage(20);
@@ -33,6 +33,8 @@ int	main(void)
 	bichette.attack("Bob");
 	bichette.attack("Bob");
 	bichette.attack("Bob");
+	charles.attack("someone");
+	eudes.attack("Paul");
 	bichette.highFivesGuys();
 	//bichette.guardGate();
 	//eudes.highFivesGuys();

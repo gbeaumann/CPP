@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/16 13:22:58 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/16 19:22:42 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/02/23 15:32:46 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,8 @@ class	DiamondTrap : public SkavTrap, public FragTrap
 	
 	public:
 		DiamondTrap(void);
-		//DiamondTrap(const DiamondTrap &copy);
-		//DiamondTrap	&operator=(const DiamondTrap &copy);
+		//DiamondTrap(const DiamondTrap &rhs);
+		//DiamondTrap	&operator=(const DiamondTrap &rhs);
 		
 		DiamondTrap(std::string name);
 		~DiamondTrap(void);

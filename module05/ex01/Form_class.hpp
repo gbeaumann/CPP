@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:25:23 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/31 10:50:30 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 09:43:21 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ class	Form
 		unsigned int	getGradeToSign(void) const;
 		unsigned int	getGradeToExec(void) const;
 		bool			getIsSigned(void) const;
-		void			beSigned(unsigned int Grade);
+		void			beSigned(Bureaucrat const &rhs);
 		
 		class	GradeTooHighException : public std::exception
 		{

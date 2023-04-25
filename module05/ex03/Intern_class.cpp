@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 13:47:31 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 09:37:57 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:02:50 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,6 +51,7 @@ AForm	*Intern::makeForm(const std::string form, const std::string target)
 			{
 				for (size_t i2 = i + 1; i2 < 3; i2++)
 					delete (tab_ft[i2]);
+				std::cout << "The intern creat form " << "'" << tab[i] << "'" << std::endl;
 				return (tab_ft[i]);
 			}
 			else
@@ -58,6 +59,6 @@ AForm	*Intern::makeForm(const std::string form, const std::string target)
 		}
 	}
 	else
-		std::cout << "The intern did not find the form: " << form << std::endl;
+		std::cout << "Error: form " << "'" << form << "'" << " does not exist" << std::endl;
 	return (NULL);
 }

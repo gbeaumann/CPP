@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 17:13:02 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/16 17:33:55 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:44:19 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ int main(void)
 	double		arrayDouble[len] = {3.025, 4.153, 97.501};
 	float		arrayFloat[len] = {3.025f, 4.153f, 97.501f};
 	::iter(array, len, ft_print);
+	std::cout << "<---------------->" << std::endl;
 	::iter(arrayInt, len, ft_print);
+	std::cout << "<---------------->" << std::endl;
 	::iter(arrayDouble, len, ft_print);
+	std::cout << "<---------------->" << std::endl;
 	::iter(arrayFloat, len, ft_print);
+	std::cout << "<---------------->" << std::endl;
 	return (0);
 }

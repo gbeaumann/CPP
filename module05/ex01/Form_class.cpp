@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 18:34:27 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/31 10:50:40 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 09:43:16 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,9 +79,9 @@ bool	Form::getIsSigned(void) const
 	return (this->_Signed);
 }
 
-void	Form::beSigned(unsigned int Grade)
+void	Form::beSigned(Bureaucrat const &rhs)
 {
-	if (this->getGradeToSign() >= Grade)
+	if (this->getGradeToSign() >= rhs.getGrade())
 		this->_Signed = true;
 	else
 		throw Form::GradeTooLowException();

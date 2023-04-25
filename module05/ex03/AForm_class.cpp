@@ -79,15 +79,12 @@ bool	AForm::getIsSigned(void) const
 	if (this->_Signed == true)
 		return	(true);
 	else
-	{
-		std::cout << this->getName() << " is not signed" << std::endl;
 		return (false);
-	}
 }
 
-void	AForm::beSigned(unsigned int Grade)
+void	AForm::beSigned(const Bureaucrat &rhs)
 {
-	if (this->getGradeToSign() >= Grade)
+	if (this->getGradeToSign() >= rhs.getGrade())
 		this->_Signed = true;
 	else
 		throw AForm::GradeTooLowException();
@@ -95,22 +92,10 @@ void	AForm::beSigned(unsigned int Grade)
 
 bool	AForm::isExecutable(const Bureaucrat &executor) const
 {
-	if (this->getIsSigned())
-	{
-		if (executor.executeForm(*this))
-			return (true);
-		else
-		{
-			delete this;
-			throw AForm::GradeTooLowException();
-		}
-	}
+	if (this->getGradeToExec() >= executor.getGrade())
+		return (true);
 	else
-	{
-		delete this;
-		throw AForm::FormNotSignedException();
-	}
-	return (false);
+		return (false);
 }
 
 // operator <<

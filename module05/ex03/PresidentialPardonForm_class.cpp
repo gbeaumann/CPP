@@ -6,11 +6,12 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:34:19 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 09:33:51 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:12:19 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"PresidentialPardonForm_class.hpp"
+#include	"Bureaucrat_class.hpp"
 
 // coplien
 
@@ -44,13 +45,17 @@ PresidentialPardonForm::~PresidentialPardonForm(void)
 
 // member fonctions
 
-std::string	PresidentialPardonForm::getTarget(void)
+std::string	PresidentialPardonForm::getTarget(void) const
 {
 	return (this->_Target);
 }
 
-void	PresidentialPardonForm::execute(const Bureaucrat &bureaucrat)
+void	PresidentialPardonForm::execute(const Bureaucrat &bureaucrat) const
 {
-	if (this->isExecutable(bureaucrat))
+	if (!this->getIsSigned())
+		throw AForm::FormNotSignedException();
+	else if (!this->isExecutable(bureaucrat))
+		throw AForm::GradeTooLowException();
+	else
 		std::cout << this->getTarget() << " was excused by Zaphod Beeblebrox" << std::endl;
 }

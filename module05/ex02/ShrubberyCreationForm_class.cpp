@@ -6,11 +6,12 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/31 13:51:41 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 09:36:02 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 17:06:36 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"ShrubberyCreationForm_class.hpp"
+#include	"Bureaucrat_class.hpp"
 
 // coplien
 
@@ -44,14 +45,18 @@ ShrubberyCreationForm::~ShrubberyCreationForm(void)
 
 // member fonctions
 
-std::string	ShrubberyCreationForm::getTarget(void)
+std::string	ShrubberyCreationForm::getTarget(void) const
 {
 	return (this->_Target);
 }
 
-void	ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat)
+void	ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat) const
 {
-	if (this->isExecutable(bureaucrat))
+	if (!this->getIsSigned())
+		throw AForm::FormNotSignedException();
+	else if (!this->isExecutable(bureaucrat))
+		throw AForm::GradeTooLowException();
+	else
 	{
 		std::ofstream	shrubbery;
 		shrubbery.open(this->getTarget() + "_shrubbery");
@@ -70,7 +75,6 @@ void	ShrubberyCreationForm::execute(const Bureaucrat &bureaucrat)
 		shrubbery << "    ###'\'|/#o#" << std::endl;
 		shrubbery << "      # }|{  #" << std::endl;
 		shrubbery << "        }|{   " << std::endl;
-	
-	  shrubbery.close();
+		shrubbery.close();
 	}
 }

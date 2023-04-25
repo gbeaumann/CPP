@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:52:55 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/01/31 11:38:50 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 09:41:37 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	Bureaucrat::signForm(Form &rhs) const
 {
 	try
 	{
-		rhs.beSigned(this->getGrade());
+		rhs.beSigned(*this);
 	}
 	catch	(Form::GradeTooHighException &e)
 	{

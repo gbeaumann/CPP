@@ -6,52 +6,94 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:37:26 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/22 16:19:26 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/23 10:57:20 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include	"Array_class.hpp"
 
 //coplien
-
-Array::Array(void) : _array(NULL), _size(0)
+template	<typename	T>
+Array<T>::Array(void) : _array(new T[0]), _size(0)
 {}
 
-Array::Array(unsigned int n) : _array(new T[n]), _size(n)
-{}
+template	<typename	T>
+Array<T>::Array(unsigned int n) : _size(n)
+{
+	if (this->_size)
+		this->_array = new T[n];
+}
 
-Array::Array(const Array &rhs)
+template	<typename	T>
+Array<T>::Array(const Array &rhs)
 {
 	*this = rhs;
 }
 
-Array	&Array::operator=(const Array &rhs)
+template	<typename	T>
+Array<T>	&Array<T>::operator=(const Array &rhs)
 {
 	if (this != &rhs)
 	{
-		this->_array = rhs._array;
+		if (this->_array)
+			delete [] this->_array;
 		this->_size = rhs._size;
+		this->_array = new T[rhs._size];
+		for (size_t i = 0; i < size(); i++)
+			this->_array[i] = rhs._array[i];
 	}
 	return (*this);
 }
 
-Array::~Array(const Array &rhs)
+template	<typename	T>
+Array<T>::~Array(void)
 {
-	delete [] _array
+	if (this->_array)
+		delete [] this->_array;
+}
+
+// member fonctions
+template	<typename	T>
+size_t	Array<T>::size(void)
+{
+	return (this->_size);
+}
+
+template	<typename	T>
+T	*Array<T>::_getArray(void)
+{
+	return (this->_array);
+}
+
+template	<typename	T>
+void	Array<T>::setArray(size_t index, const T param)
+{
+	this->_array[index] = param;
+	std::cout << "index: " << index << " = " << this->_array[index] << std::endl;
 }
 
 // operateur
-T	&Array::operator[](size_t index)
+template	<typename	T>
+T	&Array<T>::operator[](size_t index)
 {
 	if (index < this->size())
-		return (this->_array[index])
+		return (this->_array[index]);
+	else
+		throw Array::outOfBound();
+}
+
+template	<typename	T>
+T	&Array<T>::operator[](size_t index) const
+{
+	if (index < this->_size)
+		return (this->_array[index]);
 	else
 		throw Array::outOfBound();
 }
 
 // exception
-
-const char	*Array::outOfBound::what() const throw()
+template	<typename	T>
+const char	*Array<T>::outOfBound::what() const throw()
 {
 	return ("Exception: index out of bounds");
 }

@@ -38,8 +38,8 @@ class	AForm
 		unsigned int	getGradeToSign(void) const;
 		unsigned int	getGradeToExec(void) const;
 		bool			getIsSigned(void) const;
-		void			beSigned(unsigned int Grade);
-		virtual void	execute(const Bureaucrat &executor) = 0;
+		void			beSigned(const Bureaucrat &rhs);
+		virtual void	execute(const Bureaucrat &executor) const = 0;
 		bool			isExecutable(const Bureaucrat &executor) const;
 		
 		class	GradeTooHighException : public std::exception

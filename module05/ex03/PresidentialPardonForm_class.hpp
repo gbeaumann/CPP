@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 11:27:41 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 09:34:13 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 15:46:37 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ class	PresidentialPardonForm	: public AForm
 		PresidentialPardonForm	&operator=(const PresidentialPardonForm &rhs);
 		~PresidentialPardonForm(void);
 		
-		std::string	getTarget(void);
-		void		execute(const Bureaucrat &bureaucrat);
+		std::string	getTarget(void) const;
+		void		execute(const Bureaucrat &bureaucrat) const;
 };
 
 #endif

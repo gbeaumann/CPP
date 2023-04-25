@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:52:55 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 09:31:58 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:09:22 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,7 @@ void	Bureaucrat::signForm(AForm &rhs) const
 {
 	try
 	{
-		rhs.beSigned(this->getGrade());
+		rhs.beSigned(*this);
 	}
 	catch	(AForm::GradeTooHighException &e)
 	{
@@ -109,18 +109,20 @@ void	Bureaucrat::signForm(AForm &rhs) const
 		<< "'" << std::endl;
 }
 
-bool	Bureaucrat::executeForm(const AForm &form) const
+void	Bureaucrat::executeForm(const AForm &form) const
 {
-	if (this->getGrade() <= form.getGradeToExec())
+	try
 	{
-		std::cout << this->getName() << " executed " << "'" << form.getName() << "'" << std::endl;
-		return (true);
+		std::cout << this->getName() << " execute " << form.getName() << std::endl;
+		form.execute(*this);
 	}
-	else
+	catch (AForm::FormNotSignedException &e)
 	{
-		std::cout << this->getName() << "'s grade is too low to execut "
-		<< "'" << form.getName() << "'" << std::endl;
-		return (false);
+		std::cerr << e.what() << " : " << this->getName() << " can't execute " << form.getName() << std::endl;
+	}
+	catch (AForm::GradeTooLowException &e)
+	{
+		std::cerr << e.what() << " : " << this->getName() << " can't execute " << form.getName() << std::endl;
 	}
 }
 

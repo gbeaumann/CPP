@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 10:36:22 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/16 15:24:11 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/03/21 10:32:54 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,14 @@
 #include	<iostream>
 #include	<string>
 
-
-
-class	ExTemp
+/*class	ExTemp
 {
 	public:
 		ExTemp(void);
 		ExTemp(const ExTemp &rhs);
 		ExTemp	&operator=(const ExTemp &rhs);
 		~ExTemp(void);
-		
-};
+};*/	
 
 template	<typename T>
 void	swap(T &nbr1 , T &nbr2)

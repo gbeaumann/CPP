@@ -1,9 +1,8 @@
 NAME		=	template
-SRC			=	main.cpp\
-				templateEx_class.cpp
-CXX			=	g++-12
+SRC			=	main.cpp
+CXX			=	c++
 CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
-OBJS		=	$(SRC:.cpp=.o) $(SRC:.tpp=.o)
+OBJS		=	$(SRC:.cpp=.o)
 
 %.o:	%.cpp %.tpp
 		$(CXX) $(CXXFLAGS) -c $< -o $@

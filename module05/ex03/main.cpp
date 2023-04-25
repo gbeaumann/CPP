@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 14:28:40 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 10:04:01 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 18:16:37 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,51 +19,56 @@
 
 int	main(void)
 {
-	try
-		{
-			Bureaucrat	bob("Bob", 140);
-			//Bureaucrat	carl("Carl", 30);
-			Bureaucrat	eude("Eude", 2);
-			//ShrubberyCreationForm	test("Jardin");
-			//RobotomyRequestForm		robot("Android");
-			//PresidentialPardonForm	sorry("Paul");
-			Intern someRandomIntern;
-			AForm* rrf;
-			rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-		//	rrf = someRandomIntern.makeForm("presidential pardon", "Bender");
-		//	rrf = someRandomIntern.makeForm("shrubbery creation", "Bender");
 
-			bob.signForm(*rrf);
-			rrf->execute(bob);
-			//eude.setGrade("promotion");
-			//carl.signForm(robot);
-			//eude.signForm(sorry);
-			//robot.FormExec(carl);
-			//sorry.FormExec(eude);
-			delete	rrf;
-		}
-		
+	Bureaucrat	bob("Bob", 150);
+	Bureaucrat	eude("Eude", 2);
+	Intern someRandomIntern;
+	AForm	*rrf;
+	AForm	*scf;
+	AForm	*ppf;
+	rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+	//rrf = someRandomIntern.makeForm("robot", "Bender");
+	scf = someRandomIntern.makeForm("shrubbery creation", "Eden");
+	ppf = someRandomIntern.makeForm("presidential pardon", "Bill");
 
-	catch	(Bureaucrat::GradeTooHighException &e)
+	if (rrf)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << "--- rrf exception ---" << std::endl;
+		bob.signForm(*rrf);
+		bob.executeForm(*rrf);
+		std::cout << "--- rrf correct ---" << std::endl;
+		eude.signForm(*rrf);
+		eude.executeForm(*rrf);
+		delete rrf;
 	}
-	catch	(Bureaucrat::GradeTooLowException &e)
+	if (scf)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << "--- scf exception ---" << std::endl;
+		bob.signForm(*scf);
+		bob.executeForm(*scf);
+		std::cout << "--- scf correct ---" << std::endl;
+		eude.signForm(*scf);
+		eude.executeForm(*scf);
+		delete scf;
 	}
-	catch	(AForm::GradeTooHighException &e)
+	if (ppf)
 	{
-		std::cerr << e.what() << std::endl;
+		std::cout << "--- ppf exception ---" << std::endl;
+		bob.signForm(*ppf);
+		bob.executeForm(*ppf);
+		std::cout << "--- ppf correct ---" << std::endl;
+		eude.signForm(*ppf);
+		eude.executeForm(*ppf);
+		delete ppf;
 	}
-	catch	(AForm::GradeTooLowException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
-	catch	(AForm::FormNotSignedException &e)
-	{
-		std::cerr << e.what() << std::endl;
-	}
+	std::cout << "------------" << std::endl;
+	
+	/*if (rrf)
+		delete rrf;
+	if (scf)
+		delete scf;
+	if (ppf)
+		delete ppf;*/
 	
 	return (0);
 }

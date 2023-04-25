@@ -18,13 +18,18 @@ all:		$(NAME)
 $(NAME):	$(OBJS)
 	$(CC) $(CFLAG) $(OBJS) -o $(NAME)
 
+run:	all
+	./$(NAME)
+
+leaks:	all
+	leaks -atExit -- ./$(NAME)
+
 clean:
 	rm -f $(OBJS)
 
 fclean:	clean
 	rm -f $(NAME)
-	rm -f *_shrubbery
 
 re:		fclean all
 
-.PHONY:	all clean fclean re
+.PHONY:	all run leaks clean fclean re

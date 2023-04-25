@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 10:08:37 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/07 09:35:50 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/25 13:58:57 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ class	RobotomyRequestForm : public AForm
 		RobotomyRequestForm	&operator=(const RobotomyRequestForm &rhs);
 		~RobotomyRequestForm(void);
 
-		void				execute(const Bureaucrat &bureaucrat);
+		void				execute(const Bureaucrat &bureaucrat) const;
 		bool				robotomySuccess(void) const;
 		std::string			getTarget(void) const;
 };

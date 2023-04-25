@@ -1,6 +1,6 @@
 NAME		=	iter
 SRC			=	main.cpp
-CXX			=	g++-12
+CXX			=	g++
 CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
 OBJS		=	$(SRC:.cpp=.o)
 

@@ -2,7 +2,7 @@ NAME	=	serialize
 SRC		=	main.cpp\
 			Serialize_class.cpp
 
-CXX		=	g++-12
+CXX		=	c++
 CXXFLAG	=	-Werror -Wextra -Wall -std=c++98 -pedantic
 OBJS	=	$(SRC:.cpp=.o)
 

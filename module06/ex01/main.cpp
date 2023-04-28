@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 10:16:55 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/14 10:54:32 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/26 14:56:56 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	main(void)
 	data.n = 52;
 	data.c = 'A';
 	std::cout << "Original address: " << &data << std::endl;
-	std::cout << "Original value (int)test: " << data.n << std::endl;
+	std::cout << "Original value (int): " << data.n << std::endl;
 
 	result = Serialize::serialize(&data);
 

@@ -1,7 +1,6 @@
 NAME	=	identification
-SRC		=	main.cpp\
-			Identify_class.cpp
-CXX		=	g++-12
+SRC		=	main.cpp
+CXX		=	c++
 CXXFLAG	=	-Werror -Wextra -Wall -std=c++98 -pedantic
 OBJS	=	$(SRC:.cpp=.o)
 

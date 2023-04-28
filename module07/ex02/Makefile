@@ -1,7 +1,7 @@
 NAME		=	array
 SRC			=	main.cpp
-CXX			=	g++-12
-CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
+CXX			=	c++
+CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98
 OBJS		=	$(SRC:.cpp=.o)
 
 %.o:	%.cpp

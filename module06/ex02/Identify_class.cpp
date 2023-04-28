@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:29:03 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/14 15:46:51 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:41:56 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ Base	*Base::generate(void)
 	}
 	return (NULL);	
 }
+
+
 
 void	Base::identify(Base *p)
 { 

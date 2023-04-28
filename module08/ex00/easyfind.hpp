@@ -2,16 +2,15 @@
 # define EASYFIND_HPP
 
 # include	<iostream>
-# include	<string>
-# include	<array>
+# include	<algorithm>
+# include	<vector>
 
 template	<typename	T>
-typename T::iterator	easyFind(T& array, size_t find)
+typename T::iterator	easyFind(T &myContainer, int find)
 {
-	typename T::iterator	ret;
 
-	ret = std::find(array.begin(), array.end(), find);
-	return (ret);
+	return (std::find(myContainer.begin(), myContainer.end(), find));
+
 }
 
 #endif

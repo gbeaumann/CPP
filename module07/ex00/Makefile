@@ -1,7 +1,7 @@
 NAME		=	template
 SRC			=	main.cpp
 CXX			=	c++
-CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98 -pedantic
+CXXFLAGS	=	-Werror -Wextra -Wall -std=c++98
 OBJS		=	$(SRC:.cpp=.o)
 
 %.o:	%.cpp %.tpp

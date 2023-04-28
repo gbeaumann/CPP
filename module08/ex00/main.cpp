@@ -2,8 +2,10 @@
 
 int	main(void)
 {
-	std::array<int, 5> myArray = {1, 2, 3, 4, 5};
+	std::vector<int> myContainer {1, 2, 3, 4, 5};
+	std::vector<int>::iterator	ret;
+	int	toFind = 3;
 
-	std::cout << easyFind(myArray, 3) << std::endl;
+	ret = easyFind(myContainer, toFind);
 	return (0);
 }

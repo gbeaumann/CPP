@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/14 11:16:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/14 16:01:09 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/26 13:40:25 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,10 +20,7 @@
 class	Base
 {
 	public:
-		virtual	~Base(void);
-		Base	*generate(void);
-		void	identify(Base *p);
-		void	identify(Base &p);
+		virtual	~Base(void){}
 };
 
 class	A : public Base{};

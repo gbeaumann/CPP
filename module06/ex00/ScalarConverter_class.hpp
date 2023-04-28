@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 10:50:13 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/02/09 15:21:27 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/26 16:32:54 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ class	ScalarConverter
 	public:
 		static void	findType(std::string literal);
 		static bool	isItInt(std::string literal);
+		static bool	isDigit(std::string literal);
 		static void	typeFloat(std::string literal);
 		static void	pseudoFloat(std::string literal);
 		static void	typeDouble(std::string literal);

@@ -54,8 +54,20 @@ void	ScalarConverter::findType(std::string literal)
 		ScalarConverter::typeChar(literal);
 }
 
+bool	ScalarConverter::isDigit(std::string literal)
+{
+	if (literal.size() == 1)
+	{
+		if(literal[0] < 48 || literal[0] > 57)
+			return (false);
+	}
+	return (true);
+}
+
 bool	ScalarConverter::isItInt(std::string literal)
 {
+	if (!ScalarConverter::isDigit(literal))
+		return (false);
 	for (size_t i = 0; i < literal.size(); i++)
 	{
 		if (literal[0] == 45)

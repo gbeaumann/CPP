@@ -6,11 +6,13 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 11:02:15 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/03/21 10:27:25 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/28 15:22:53 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include    "templateEx_class.hpp"
+
+#include	<iostream>
 
 int main(void)
 {

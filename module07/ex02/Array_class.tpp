@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/17 10:37:26 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/03/23 10:57:20 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/27 09:23:16 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,6 @@ template	<typename	T>
 T	&Array<T>::operator[](size_t index)
 {
 	if (index < this->size())
-		return (this->_array[index]);
-	else
-		throw Array::outOfBound();
-}
-
-template	<typename	T>
-T	&Array<T>::operator[](size_t index) const
-{
-	if (index < this->_size)
 		return (this->_array[index]);
 	else
 		throw Array::outOfBound();

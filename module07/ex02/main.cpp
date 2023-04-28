@@ -6,7 +6,7 @@
 /*   By: gbeauman <gbeauman@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/22 15:32:10 by gbeauman          #+#    #+#             */
-/*   Updated: 2023/03/23 11:02:24 by gbeauman         ###   ########.fr       */
+/*   Updated: 2023/04/28 13:57:52 by gbeauman         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,54 +14,70 @@
 #include	"Array_class.tpp"
 
 
-#define TAB_SIZE 15
+#define TAB_SIZE 5
+
 int main(void)
 {
-	Array<std::string> c(12);
-	std::cout << "size of c = " << c.size() << std::endl;
-	Array<int> a(TAB_SIZE);
+	Array<int>	tabInt(TAB_SIZE);
+	Array<int>	copyTabInt;
+	
+	try
+	{
+		std::cout << "Size of tabInt: " << tabInt.size() << std::endl;
+		std::cout << "--- Original array ---" << std::endl;
+		for (size_t i = 0; i < TAB_SIZE; i++)
+		{
+			tabInt[i] = i;
+			std::cout << "tabInt[" << i << "] = " << tabInt[i] << std::endl;
+		}
+		copyTabInt = tabInt;
+		size_t	i2 = TAB_SIZE;
+		std::cout << "--- Changed array ---" << std::endl;
+		for (size_t i = 0; i < TAB_SIZE; i++)
+		{
+			tabInt[i] = i2--;
+			std::cout << "tabInt[" << i << "] = " << tabInt[i] << std::endl;
+		}
+		std::cout << "--- Copied array ---" << std::endl;
+		for (size_t i = 0; i < TAB_SIZE; i++)
+			std::cout << "copyTabInt[" << i << "] = " << copyTabInt[i] << std::endl;
+	}
+	catch	(std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	Array<std::string>	tabString(3);
+	Array<std::string>	copyTabString;
+	std::cout << "--- String array ---" << std::endl;
+	try
+	{
+		tabString[0] = "Salut";
+		tabString[1] = "les";
+		tabString[2] = "pipous";
+
+		copyTabString = tabString;
+		copyTabString[2] = "lapin";
+
+		std::cout << "tabString[2]: " << tabString[2] << std::endl;
+		std::cout << "copyTabString[2]: " << copyTabString[2] << std::endl;
+	}
+	catch	(std::exception &e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+	std::cout << "--- Exceptions ---" << std::endl;
 
 	try
 	{
-		for (size_t i = 0; i < TAB_SIZE; i++)
-			a[i] = i;
-		const Array<int> a_const(a);
-		for (size_t i = 0; i < TAB_SIZE; i++)
-			std::cout << "a[" << i << "] " << a_const[i] << '\n';
-		std::cout << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';
+		std::cout << "Try to acces tabString[3]" << std::endl;
+		std::cout << tabString[3] << std::endl;
 	}
 
-	try
+	catch	(std::exception &e)
 	{
-		Array<int> b(a);
+		std::cerr << e.what() << std::endl;
+	}
 
-		b[0] = 8;
-		std::cout << "b:" << b[0] << std::endl;
-		std::cout << "a:" << a[0] << std::endl;
-	}
-	catch(const std::exception& e)
-	{
-		std::cerr << e.what() << '\n';	
-	}
 	return (0);
 }
-
-/*int main(void)
-{
-	Array<int>	a;
-	Array<int>	b(5);
-	std::cout << "lenght: " << b.size() << std::endl;
-	b.setArray(0, 1);
-	b.setArray(1, 2);
-	b.setArray(2, 3);
-	b.setArray(3, 4);
-	b.setArray(4, 5);
-	b.setArray(5, 6);
-
-
-	return (0);
-}*/

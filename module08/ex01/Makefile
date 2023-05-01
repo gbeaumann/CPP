@@ -1,5 +1,6 @@
-NAME		=	span
-SRC			=	main.cpp
+	NAME		=	easyfind
+SRC			=	main.cpp\
+				Span_class.cpp
 CXX			=	c++
 CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
 OBJS		=	$(SRC:.cpp=.o)

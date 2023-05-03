@@ -4,6 +4,7 @@
 # include	<algorithm>
 # include	<vector>
 # include	<iostream>
+# include	<numeric>
 
 class	Span
 {
@@ -18,14 +19,19 @@ class	Span
 		~Span(void);
 
 		std::vector<unsigned int>	myContainer; // a mettre en private
-		void			addNumber(unsigned int num);
-		unsigned int	getMaxNum(void) const;
+		void	addNumber(int num);
+		int		getMaxNum(void) const;
+		void	shortestSpan(void);
+		void	longestSpan(void);
+		void	fillContainer(unsigned int numIter);
 
 		class	OutOfBoundException : public std::exception
 		{
 			public:
 				virtual const char	*what() const throw();
 		};
+
+		class	
 };
 
 #endif

@@ -11,13 +11,15 @@ int	main(void)
 		test.addNumber(5);
 		test.addNumber(74);
 		test.addNumber(1);
-		test.addNumber(4);
+		test.addNumber(16);
 		//test.addNumber(6);
-		std::cout << test.myContainer.at(2) << std::endl;
+		//std::cout << test.myContainer.at(2) << std::endl;
 	}
 	catch	(std::exception &e)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	test.shortestSpan();
+	test.longestSpan();
 	return (0);
 }

@@ -2,7 +2,6 @@
 # define ITER_HPP
 
 #include	<iostream>
-#include	<string>
 
 template	<typename	T>
 void	ft_print(T &toPrint)
@@ -11,10 +10,10 @@ void	ft_print(T &toPrint)
 }
 
 template	<typename	T>
-void	iter(T *addr, int len, void(*ft_print)(T const &))
+void	iter(T *addr, int len, void(*myFonc)(T const &))
 {
 	for (int i = 0; i < len; i++)
-		ft_print(addr[i]);
+		myFonc(addr[i]);
 }
 
 #endif

@@ -1,30 +1,29 @@
-NAME		=	span
-SRC			=	main.cpp
-CXX			=	c++
-CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
-OBJS		=	$(SRC:.cpp=.o)
+NAME	=	easyfind
+SRC		=	main.cpp
+CXX		=	c++
+CXXFLAG	=	-Werror -Wextra -Wall -std=c++98 -pedantic
+OBJS	=	$(SRC:.cpp=.o)
 
 %.o:	%.cpp
-		$(CXX) $(CXXFLAGS) -c $< -o $@
-
+	$(CXX) $(CXXFLAG) -c $< -o $@
 
 all:		$(NAME)
 
 $(NAME):	$(OBJS)
-			$(CXX) $(CXXFLAGS) $(OBJS) -o $(NAME)
+	$(CXX) $(CXXFLAG) $(OBJS) -o $(NAME)
 
-run:		all
-			./$(NAME)
+run:	all
+	./$(NAME)
 
-leaks:		all
-			leaks -atExit -- ./$(NAME)
+leaks:
+	leaks -atExit -- ./$(NAME)
 
 clean:
-			rm -f $(OBJS)
+	rm -f $(OBJS)
 
-fclean:		clean
-			rm -f $(NAME)
+fclean:	clean
+	rm -f $(NAME)
 
-re:			fclean all
+re:		fclean all
 
-.PHONY:		all run leaks clean fclean re
+.PHONY:	all run leaks clean fclean re

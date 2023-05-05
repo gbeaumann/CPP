@@ -1,4 +1,4 @@
-	NAME		=	easyfind
+NAME		=	span
 SRC			=	main.cpp\
 				Span_class.cpp
 CXX			=	c++

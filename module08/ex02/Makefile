@@ -1,6 +1,5 @@
 NAME		=	mutant_stack
 SRC			=	main.cpp
-				# mutantStack_class.tpp
 CXX			=	c++
 CXXFLAGS	=	-Wall -Werror -Wextra -std=c++98
 OBJS		=	$(SRC:.cpp=.o)

@@ -11,6 +11,7 @@ int	main(void)
 		myContainer.push_back(i);
 	try
 	{
+		std::cout << "Try to find 3" << std::endl;
 		it = easyfind(myContainer, toFind);
 		std::cout << toFind << std::endl;
 	}
@@ -20,6 +21,7 @@ int	main(void)
 	}
 	try
 	{
+		std::cout << "Try to find 6" << std::endl;
 		it = easyfind(myContainer, errToFind);
 		std::cout << errToFind << std::endl;
 	}

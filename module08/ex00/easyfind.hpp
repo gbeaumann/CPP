@@ -3,7 +3,6 @@
 
 # include	<vector>
 # include	<algorithm>
-# include	<stdio.h>
 # include	<iostream>
 
 class	NotFoundException : public std::exception

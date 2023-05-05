@@ -7,9 +7,6 @@
 template	<typename T>
 class	MutantStack : public std::stack<T>
 {
-	private:
-		//std::stack<T>	_myContainer;
-
 	public:
 		MutantStack(void);
 		MutantStack(const MutantStack &rhs);

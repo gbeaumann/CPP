@@ -34,12 +34,22 @@ int	main(void)
 		std::cerr << e.what() << std::endl;
 	}
 	
-	std::cout << " --- Empty test --- " << std::endl;
-	Span	exception;
+	std::cout << " --- Empty test (longest) --- " << std::endl;
+	Span	exceptionLong;
 	try
 	{
-		exception.longestSpan();
-		exception.shortestSpan();
+		exceptionLong.longestSpan();
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << e.what() << std::endl;
+	}
+
+	std::cout << " --- Empty test (shortest) --- " << std::endl;
+	Span	exceptionShort;
+	try
+	{
+		exceptionShort.shortestSpan();
 	}
 	catch(const std::exception& e)
 	{
@@ -54,14 +64,14 @@ int	main(void)
 
 	for (size_t i = 0; i < randnum; i++)
 	{
-		randStock.push_back(rand() % 1000);
+		randStock.push_back(rand() % 100000);
 		std::cout << randStock[i] << " ";
 	}
 	std::cout << std::endl;
 	
 	try
 	{
-		testRand.addNumber(randStock.begin(), randStock.end());
+		testRand.addNumbers(randStock.begin(), randStock.end());
 		testRand.longestSpan();
 		testRand.shortestSpan();
 	}

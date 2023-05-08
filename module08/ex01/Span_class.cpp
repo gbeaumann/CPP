@@ -17,8 +17,10 @@ Span::Span(const Span &rhs)
 Span	&Span::operator=(const Span &rhs)
 {
 	if (this != &rhs)
+	{
 		this->_N = rhs._N;
 		this->myContainer = rhs.myContainer;
+	}
 	return (*this);
 }
 
@@ -40,7 +42,7 @@ void	Span::addNumber(int num)
 		throw Span::OutOfBoundException();
 }
 
-void	Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+void	Span::addNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
 	if (this->myContainer.size() >= this->getMaxNum())
 		throw Span::OutOfBoundException();
@@ -81,17 +83,12 @@ void	Span::longestSpan(void)
 {
 	if (this->getMaxNum() == 0)
 		throw Span::EmptyContainerException();
-
-	std::vector<int>	diff;
 	int					max_diff;
 
 	std::sort(this->myContainer.begin(), this->myContainer.end());
-	std::adjacent_difference(this->myContainer.begin(), this->myContainer.end(), std::back_inserter(diff));
-	
-	max_diff = *std::max_element(diff.begin() + 1, diff.end());
-
+	max_diff = *std::max_element(this->myContainer.begin(), this->myContainer.end()) -
+				*std::min_element(this->myContainer.begin(), this->myContainer.end());
 	std::cout << max_diff << std::endl;
-
 }
 
 //exception

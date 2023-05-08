@@ -10,6 +10,7 @@ class	Span
 {
 	private:
 		unsigned int	_N;
+		std::vector<int>	myContainer;
 	
 	public:
 		Span(void);
@@ -18,12 +19,11 @@ class	Span
 		Span	&operator=(const Span &rhs);
 		~Span(void);
 
-		std::vector<unsigned int>	myContainer; // a mettre en private
-		void	addNumber(int num);
-		int		getMaxNum(void) const;
-		void	shortestSpan(void);
-		void	longestSpan(void);
-		void	fillContainer(unsigned int numIter);
+		void			addNumber(int num);
+		void			addNumber(std::vector<int>::iterator begin, std::vector<int>::iterator end);
+		unsigned int	getMaxNum(void) const;
+		void			shortestSpan(void);
+		void			longestSpan(void);
 
 		class	OutOfBoundException : public std::exception
 		{
@@ -31,7 +31,12 @@ class	Span
 				virtual const char	*what() const throw();
 		};
 
-		class	
+		class	EmptyContainerException : public std::exception
+		{
+			public:
+				virtual const char	*what() const throw();
+		};
+
 };
 
 #endif

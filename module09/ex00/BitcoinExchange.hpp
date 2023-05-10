@@ -15,10 +15,11 @@ class	BitCoinExchange
 	public:
 		BitCoinExchange(void);
 		BitCoinExchange(const BitCoinExchange &rhs);
-		BitCoinExchange	&operateur=(const BitCoinExchange &rhs);
+		BitCoinExchange &operator=(const BitCoinExchange &rhs);
 		~BitCoinExchange(void);
 
-		void	creatDB(std::ifstream &data);
+		void	creatDB(const std::string &dataFile);
+		void	checkMap(void);
 
 };
 

@@ -2,12 +2,11 @@
 
 int	main(int argc, char **argv)
 {
-	std::ifstream	test(argv[1]);
-	std::string	line;
+	BitCoinExchange	test;
 	if (argc < 1)
 		return (0);
-	while(std::getline(test, line))
-		std::cout << line << std::endl;
+	test.creatDB(argv[1]);
+	test.checkMap();
 
 	return (0);
 }

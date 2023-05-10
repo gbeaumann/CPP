@@ -1,12 +1,16 @@
 #include	"BitcoinExchange.hpp"
 
+// check sujet si trouve pas date, prendre date la plus proche (avant)
+
 int	main(int argc, char **argv)
 {
-	BitCoinExchange	test;
-	if (argc < 1)
+	BitcoinExchange	test;
+	if (argc < 2)
 		return (0);
-	test.creatDB(argv[1]);
-	test.checkMap();
+	test.creatDB("data.csv");
+	test.openFile(argv[1]);
+
+	//test.checkMap();
 
 	return (0);
 }

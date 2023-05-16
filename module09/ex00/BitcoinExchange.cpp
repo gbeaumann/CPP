@@ -21,24 +21,24 @@ BitcoinExchange::~BitcoinExchange(void) {}
 
 void	BitcoinExchange::creatDB(const std::string	&dataFile)
 {
-	std::string	line;
+	std::string		line;
 	std::ifstream	data;
 
 	data.open(dataFile.c_str());
 	if (!data.is_open())
-		//throw exception
+		throw BitcoinExchange::CantOpenFileException();
 
 	std::getline(data, line);
 	while (std::getline(data, line))
 	{
-		int	i = 0;
 		std::string	stock;
-		if ((i = line.find(",") != std::string::npos))
+		unsigned long	i = 0;
+		if ((i = line.find(",")) != std::string::npos)
 		{
 			stock = line.substr(0, i);
 			line.erase(0, i + 1);
 		}
-		this->_myMap[stock] = std::atoi(line.c_str());
+		this->_myMap[stock] = std::atof(line.c_str());
 	}
 	data.close();
 }
@@ -49,8 +49,8 @@ void	BitcoinExchange::openFile(const std::string &inputFile)
 	std::string		line;
 
 	file.open(inputFile.c_str());
-	//if (!file.is_open())
-		//throw exception
+	if (!file.is_open())
+		throw BitcoinExchange::CantOpenFileException();
 	std::getline(file, line);
 	while (std::getline(file, line))
 	{
@@ -58,7 +58,6 @@ void	BitcoinExchange::openFile(const std::string &inputFile)
 		{
 			this->checkDB(line);
 			this->outputDB();
-
 		}
 		catch (std::exception &e)
 		{
@@ -70,13 +69,30 @@ void	BitcoinExchange::openFile(const std::string &inputFile)
 
 void	BitcoinExchange::outputDB(void)
 {
-	std::map<std::string, int>::iterator	it = this->_myMap.find(this->getDate());	
-	if (it != this->_myMap.end())
-		std::cout << this->getDate() << " => " << this->getValue() << " = " << it->second * this->getValue() << std::endl;
+	std::map<std::string, double>::iterator	it = this->_myMap.lower_bound(this->getDate());
+	if (it == this->_myMap.end())
+	{
+		it--;
+		std::cout << it->first << " => " << this->getValue() << " = " << it->second * this->getValue() << std::endl;
+		return;
+	}
+	if (it == this->_myMap.begin())
+	{
+		std::cout << it->first << " => " << this->getValue() << " = " << it->second * this->getValue() << std::endl;
+		return;
+	}
+	if (it->first == this->getDate())
+	{
+		std::cout << it->first << " => " << this->getValue() << " = " << it->second * this->getValue() << std::endl;
+		return;
+	}
 	else
-		throw BitcoinExchange::InputNotInFileException();
+	{
+		std::map<std::string, double>::iterator	preIt = it;
+		preIt--;
+		std::cout << preIt->first << " => " << this->getValue() << " = " << preIt->second * this->getValue() << std::endl;
+	}
 }
-
 
 // ------------- checker -------------
 
@@ -87,7 +103,6 @@ void	BitcoinExchange::checkDB(std::string line)
 	std::string	value;
 	int			pos;
 	
-	//std::cout << line << std::endl;
 	stock = line;
 	pos = stock.find("|");
 	if (pos < 0)
@@ -136,7 +151,7 @@ bool	BitcoinExchange::checkYear(std::string year)
 	int	date;
 
 	date = std::atoi(year.c_str());
-	if (date < 1000 || date > 9999)
+	if (date < 2009 || date > 9999)
 		return (0);
 	return (1);
 }
@@ -163,7 +178,7 @@ bool	BitcoinExchange::checkDay(std::string day)
 
 bool	BitcoinExchange::checkValue(std::string value)
 {
-	float	nbr;
+	double	nbr;
 
 	nbr = std::atof(value.c_str());
 	if (nbr < 0 || nbr > 1000)
@@ -179,7 +194,7 @@ std::string	BitcoinExchange::getDate(void)
 	return (this->_date);
 }
 
-float	BitcoinExchange::getValue(void)
+double	BitcoinExchange::getValue(void)
 {
 	return (this->_value);
 }
@@ -200,14 +215,7 @@ const char *BitcoinExchange::WrongInputException::what() const throw()
 	return ("Exception: wrong input");
 }
 
-const char	*BitcoinExchange::InputNotInFileException::what() const throw()
+const char	*BitcoinExchange::CantOpenFileException::what() const throw()
 {
-	return ("Exception: input not in file");
-}
-
-//test
-
-void	BitcoinExchange::checkMap(void)
-{
-	std::cout << this->_myMap["2010-09-10"] << std::endl;
+	return ("Exception: can't open file");
 }

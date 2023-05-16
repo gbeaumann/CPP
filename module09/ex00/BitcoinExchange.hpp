@@ -3,17 +3,20 @@
 
 # include	<map>
 # include	<iostream>
-# include	<cstdio>
+# include	<cstdlib>
 # include	<string>
 # include	<fstream>
+# include	<ctime>
+# include	<sstream>
+# include	<iterator>
 
 
 class	BitcoinExchange
 {
 	private:
-		std::map<std::string, int>	_myMap;
+		std::map<std::string, double>	_myMap;
 		std::string					_date;
-		float						_value;
+		double						_value;
 
 	public:
 		BitcoinExchange(void);
@@ -22,7 +25,7 @@ class	BitcoinExchange
 		~BitcoinExchange(void);
 
 		std::string	getDate(void);
-		float		getValue(void);
+		double		getValue(void);
 
 		void	creatDB(const std::string &dataFile);
 		void	openFile(const std::string &inputFile);
@@ -34,7 +37,6 @@ class	BitcoinExchange
 		bool	checkMonth(std::string month);
 		bool	checkDay(std::string day);
 		bool	checkValue(std::string value);
-
 
 		class	WrongDateException : public std::exception
 		{
@@ -54,15 +56,11 @@ class	BitcoinExchange
 				virtual const char *what() const throw();
 		};
 
-		class	InputNotInFileException : public std::exception
+		class	CantOpenFileException : public std::exception
 		{
 			public:
 				virtual const char	*what() const throw();
 		};
-
-		//test
-		void	checkMap(void);
-
 };
 
 #endif

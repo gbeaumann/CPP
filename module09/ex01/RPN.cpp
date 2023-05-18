@@ -13,7 +13,10 @@ RPN::RPN(const RPN &rhs)
 RPN	&RPN::operator=(const RPN &rhs)
 {
 	if (this != &rhs)
+	{
 		this->_myStack = rhs._myStack;
+		this->_operator = rhs._operator;
+	}
 	return (*this);
 }
 
